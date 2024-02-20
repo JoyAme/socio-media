@@ -2,7 +2,7 @@ import {styled} from 'styled-components'
 
 export const Headwrap=styled.div`
     width:100%;
-    padding:5px 0;
+    padding:10px 0;
     position:sticky;
     top:0;
     border-bottom:1px solid whitesmoke;
@@ -48,5 +48,15 @@ input{
     display:flex;
     margin-right:20px;
     border-left:2px solid whitesmoke;
+}
+
+
+@media screen and (max-width:478px){
+    .Header-row{
+        display:block;
+       row-gap:20px;
+        /* justify-content:space-around;
+        align-items:center; */
+    }
 }
 `

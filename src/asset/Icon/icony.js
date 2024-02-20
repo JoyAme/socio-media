@@ -18,4 +18,15 @@ export const Iconwrap=styled.div`
     color:#999B9C ;
     font-size:12px;
    }
+
+   @media screen and (max-width:478px) {
+      display:none;
+      .icony{
+        font-size:14px;
+      }
+     
+     .title{
+         font-size:10px;
+        }
+   }
 `

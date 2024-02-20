@@ -14,4 +14,14 @@ h1{
     font-size:25px;
 }
 
+
+@media screen and (max-width:478px){
+    h1{
+      font-size:12px;
+    }
+    h5{
+        font-size:13px;
+    }
+}
+
 `

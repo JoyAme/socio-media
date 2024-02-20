@@ -6,11 +6,6 @@ import Cent from '../../Feeds/Center/Cent';
 import { Hewrap } from './HeroSty';
 
 
-
-
-
-
-
 const Herro = () => {
   return (
     <div>
@@ -18,7 +13,7 @@ const Herro = () => {
     <Container>
     <div className='wrap-body'>
       <Sidee/>
-      <Cent/>
+      <Cent className='cent'/>
       <Rightbar/>
       </div>
       </Container>

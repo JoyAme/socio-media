@@ -45,6 +45,7 @@ button{
     display:flex;
     justify-content:space-around;
 }
+
 `
 
 export const CentDown=styled.div`
@@ -53,6 +54,7 @@ export const CentDown=styled.div`
    border-radius:10px;
     padding:10px;
     padding-bottom:20px;
+    text-align:left;
     margin-bottom:20px;  
     
 .avatar{
@@ -62,17 +64,28 @@ export const CentDown=styled.div`
     display:flex;
     align-items:start;
     gap:10px;
+    /* margin-left:20px; */
+}
+.post{
+margin-top:20px;
+margin-bottom:20px;
 }
  h4{
     margin-top:20px;
 }
 .comments-Input{
     display:flex;
-    // gap:30px;
+   cursor: pointer;
     justify-content:space-around; 
 }
 .comments{
     font-size:12px;
+}
+
+@media screen and (max-width:478px){
+    .post h5{
+        font-size:12px;
+    }
 }
 `
 export const Centt=styled.div`
@@ -80,4 +93,12 @@ export const Centt=styled.div`
   font-family: "Roboto", sans-serif;
   font-weight: 100;
   font-style: normal;
+
+  hr{
+   color:grey;
+   height:2px;
+}
+
+
+
 `

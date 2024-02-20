@@ -15,7 +15,10 @@ background:#f4f2ee;
 @media screen and (max-width:478px){
     .wrap-body{
         display:block;
+        padding-top:40px;
     }
+   .cent{
     
+   } 
 }
 `

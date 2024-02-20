@@ -22,7 +22,7 @@ const Cent = () => {
 
 
   const getPost = async ()=>{
-     
+ 
     try{
       const Data= await  getDocs(postCollection)
       const filterPost= Data.docs.map((doc)=>({...doc.data(), id:doc.id}))
@@ -30,15 +30,18 @@ const Cent = () => {
       console.log(filterPost)
     }catch (err){
       console.error(err)
-    }     
+    }  
+
+   
   }
 
   useEffect(()=>{
     getPost()
+    
   },[])
 
 const HandleSubmit= async (e)=>{
-    e.preventDefault()
+   
   try{
     await addDoc(postCollection,{
       Writeup:upload,
@@ -95,11 +98,12 @@ const HandleSubmit= async (e)=>{
             <h6>Work</h6>
           </div>
       </div>
-      <div>
-        <h4>{posts.Writeup}</h4>
+      <div className="post">
+        <h5>{posts.Writeup}</h5>
       </div>
-
+      {/* <hr></hr> */}
       <div className='comments-Input'>
+        
         <Inputoptions Icon={<AiOutlineLike />} title='Liked' color='grey' className='comments'/>
         <Inputoptions Icon={<FaRegCommentDots />} title='Comment' color='grey' className='comments'/>
         <Inputoptions Icon={<BiRepost />} title='Repost' color='grey' className='comments'/>
