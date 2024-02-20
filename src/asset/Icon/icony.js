@@ -18,7 +18,9 @@ export const Iconwrap=styled.div`
     color:#999B9C ;
     font-size:12px;
    }
-
+&:hover{
+   text-decoration:underline;
+}
    @media screen and (max-width:478px) {
       display:none;
       .icony{

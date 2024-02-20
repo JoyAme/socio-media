@@ -3,7 +3,7 @@ import {styled} from 'styled-components'
 export const CentWrap=styled.div`
     
 
-    flex:0.6;
+    flex:0.7;
     /* background:white; */
     margin:0 20px;
     /* height:20vh; */
@@ -100,5 +100,7 @@ export const Centt=styled.div`
 }
 
 
-
+@media screen and (max-width:478px){
+    padding-top:40px;
+}
 `

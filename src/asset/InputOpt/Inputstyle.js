@@ -13,7 +13,11 @@ export const Inputwrap=styled.div`
 h1{
     font-size:25px;
 }
+/* &:hover{
+    background:grey;
 
+    border-radius:10px;
+} */
 
 @media screen and (max-width:478px){
     h1{
