@@ -3,9 +3,11 @@ import { Sid, SideBar, Sidewrap } from './Sidestyle'
 import { FaHashtag, FaUserCircle } from "react-icons/fa";
 import { RiBuilding3Fill } from "react-icons/ri";
 import { Data } from './Data';
+import { useSelector } from 'react-redux';
 
 
 const Sidee = () => {
+  const User=useSelector((state)=> state.data.user.user)
   return (
     <>
     <Sid>
@@ -14,7 +16,7 @@ const Sidee = () => {
       <div className='side-bar'>
         <img src='./image/backgig.jpeg' alt='back'/>
         <FaUserCircle className='avatar'/> 
-        <h4>Joy Ame</h4>
+        <h4>{User.email}</h4>
         <h6 className='info1'>| Environmentalist | Project Management | interior designer | Product 
           management certified @entrylevel @aptlearn 
           | Digital (API) product management (in view)</h6>
@@ -44,7 +46,7 @@ const Sidee = () => {
      
     </div>
     </Sidewrap>
-    
+
     <SideBar>
      <div className='side-barr'>
      <h5 className='Recent'>Recent</h5>

@@ -10,19 +10,22 @@ import { BiSolidVideos } from "react-icons/bi";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { TbArticle } from "react-icons/tb";
 import Inputoptions from "../../asset/InputOpt/Inputoptions";
-import {db} from '../../asset/firebase'
+import {db} from '../../asset/firebase';
 import { getDocs,collection,addDoc} from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
 
 const Cent = () => {
+  const user=useSelector((state)=> state.data.user.user)
   const [post,setPost] =useState([])
   const [upload,setUpload] =useState('')
 
   const postCollection=collection(db,"Post")
 
 
-  const getPost = async ()=>{
- 
+  const getPost = (e) => async ()=>{
+    e.preventDefault()
     try{
       const Data= await  getDocs(postCollection)
       const filterPost= Data.docs.map((doc)=>({...doc.data(), id:doc.id}))
@@ -31,19 +34,42 @@ const Cent = () => {
     }catch (err){
       console.error(err)
     }  
-
-   
   }
 
-  useEffect(()=>{
-    getPost()
+   useEffect(()=>{
+      
+      getPost()
+    },[])
+   
+  // }
+
+  // useEffect(()=>{
+  //   collection(db,"Post").onSnapshot((snapshot)=>
+  //  setPost( snapshot.docs.map((doc)=>({
+  //   id:doc.id,
+  //   data:doc.data(),
+  //  })))
+  //  )
     
-  },[])
+  // },[])
+
+  // const sendPost=(e)=>{
+  //   e.preventDefault()
+  //   collection('posts').add({
+  //     name:'adebisi',
+  //     ocupation:'product manager',
+  //     Writeup:upload
+  //   })
+  // }
+
+
 
 const HandleSubmit= async (e)=>{
    
   try{
     await addDoc(postCollection,{
+      name:{},
+      occupation:'product manager',
       Writeup:upload,
     })
     getPost()
@@ -64,7 +90,7 @@ const HandleSubmit= async (e)=>{
         <div className="Search-Form">
           <BsPencilFill />
           <form onSubmit={HandleSubmit}>
-            <input type="text" placeholder="Start a post" onChange={(e)=> setUpload(e.target.value)}/>
+            <input type="text" placeholder="Start a post" value={upload} onChange={(e)=> setUpload(e.target.value)}/>
             <button type="submit">send</button>
           </form>
         </div>
@@ -88,18 +114,19 @@ const HandleSubmit= async (e)=>{
   
   {
   post.map((posts)=>{
+    const {name,occupation,id,Writeup}=posts
     return(
       <>
        <CentDown> 
-     <div className="user-info">
+     <div className="user-info" key={id}>
           <FaUserCircle className='avatar'/> 
           <div>
-            <h5>Name</h5>
-            <h6>Work</h6>
+            <h5>{name}</h5>
+            <h6>{occupation}</h6>
           </div>
       </div>
       <div className="post">
-        <h5>{posts.Writeup}</h5>
+        <h5>{Writeup}</h5>
       </div>
       {/* <hr></hr> */}
       <div className='comments-Input'>
@@ -119,6 +146,6 @@ const HandleSubmit= async (e)=>{
     </Centt>
     </>
   )
-}
 
+}
 export default Cent

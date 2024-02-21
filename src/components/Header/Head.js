@@ -49,7 +49,9 @@ input{
     margin-right:20px;
     border-left:2px solid whitesmoke;
 }
-
+.usericon{
+    display:none;
+}
 
 @media screen and (max-width:478px){
     .Header-row{
@@ -58,5 +60,17 @@ input{
         /* justify-content:space-around;
         align-items:center; */
     }
+    .icons{
+        display:none;
+    }
+    .icons-right{
+        display:none;
+    }
+    .usericon{
+    display:block;
+}
+.btn{
+    display:block;
+}
 }
 `

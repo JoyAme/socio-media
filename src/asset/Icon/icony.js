@@ -22,7 +22,7 @@ export const Iconwrap=styled.div`
    text-decoration:underline;
 }
    @media screen and (max-width:478px) {
-      display:none;
+      /* display:none; */
       .icony{
         font-size:14px;
       }
