@@ -39,6 +39,16 @@ padding:20px 10px;
         background:red;
     }
 }
+
+@media screen and (max-width:768px){
+    font-size:12px;
+    .btn{
+
+padding:5px 5px;
+font-size:10px;
+
+}
+}
 `
 
 
@@ -59,4 +69,17 @@ padding:20px 10px;
     margin-top:20px;
     color:blue;
 }
+@media screen and (max-width:478px){
+   margin-bottom:70px;
+}
+
+@media screen and (max-width:768px){
+    font-size:12px;
+    .btn{
+
+    padding:5px 10px;
+    font-size:10px;
+  
+}
+    }
 `

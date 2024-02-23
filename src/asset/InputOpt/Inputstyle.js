@@ -1,5 +1,8 @@
 import {styled} from 'styled-components'
 
+
+
+
 export const Inputwrap=styled.div`
 .options{
     text-align:center;
@@ -27,5 +30,10 @@ h1{
         font-size:13px;
     }
 }
+@media screen and (max-width:768px){
+  .option h5{
+    font-size:10px;
 
+  } 
+}
 `

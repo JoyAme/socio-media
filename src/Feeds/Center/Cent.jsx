@@ -10,36 +10,70 @@ import { BiSolidVideos } from "react-icons/bi";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { TbArticle } from "react-icons/tb";
 import Inputoptions from "../../asset/InputOpt/Inputoptions";
-import {db} from '../../asset/firebase';
-import { getDocs,collection,addDoc} from "firebase/firestore";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { db } from "../../asset/firebase";
+// import {db} from '../../asset/firebase';
+// import { getDocs,collection,addDoc} from "firebase/firestore";
+// import { useEffect, useState } from "react";
+
 
 
 const Cent = () => {
-  const user=useSelector((state)=> state.data.user.user)
+  // const user=useSelector((state)=> state.data.user.user)
   const [post,setPost] =useState([])
-  const [upload,setUpload] =useState('')
+  const [writeUp,setWriteUp] =useState('')
+  // const [loading,setLoading]= useState(true)
 
-  const postCollection=collection(db,"Post")
 
+ 
 
-  const getPost = (e) => async ()=>{
-    e.preventDefault()
-    try{
-      const Data= await  getDocs(postCollection)
-      const filterPost= Data.docs.map((doc)=>({...doc.data(), id:doc.id}))
-      setPost(filterPost)
-      console.log(filterPost)
-    }catch (err){
-      console.error(err)
-    }  
-  }
+  const postCollection= collection(db,"Post");
 
-   useEffect(()=>{
+const CreatePost = async ()=>{
+  
+    await addDoc(postCollection,{Writeup:writeUp})
+ setWriteUp()
+}
+
+  
+useEffect(()=>{
+ 
+  // const getUpdate= async ()=>{
+  //   const data= await getDocs(postCollection);
+  //   setPost(data.docs.map((doc)=>({...doc.data(), id:doc.id})))
+  // }
+  // getUpdate()
+})
+ 
+  
+  // const getPost = async ()=>{
+    
+  //   try{
+  //     const Data= await  getDocs(postCollection)
+  //     const filterPost= Data.docs.map((doc)=>({...doc.data(), id:doc.id}))
+  //     setPost(filterPost)
+  //     console.log(Data)
+  //   }catch (err){
+  //     console.error(err)
+  //   }  
+  // }
+//   const getPost = async ()=>{
+//     // e.preventDefault()
+//     try{
+//       const Data= await  getDocs(postCollection)
+//       setPost(Data.docs.map(doc=>({...doc.data(), id:doc.id})))
+          
+//   }catch (err){
+//         console.error(err)
+//       }  
       
-      getPost()
-    },[])
+// }
+
+//    useEffect(()=>{
+   
+//   getPost()
+//     },[])
    
   // }
 
@@ -63,23 +97,25 @@ const Cent = () => {
   // }
 
 
+// const HandleSubmit= async ()=>{
 
-const HandleSubmit= async (e)=>{
-   
-  try{
-    await addDoc(postCollection,{
-      name:{},
-      occupation:'product manager',
-      Writeup:upload,
-    })
-    getPost()
-  }catch (err){
-    console.error(err)
-  }
-}
-
+//     try{
+//       await addDoc(postCollection,[
+//        { name:'joy Ame',
+//         occupation:'product manager',
+//         Writeup:upload,}
+//       ])
+    
+//     }catch (err){
+//       console.error(err)
+//     }
+// }
 
 
+
+// if(loading){
+//   <div>Loading...</div>
+//  }
 
   return (
     <>
@@ -89,10 +125,10 @@ const HandleSubmit= async (e)=>{
       <div className='feed-container'>
         <div className="Search-Form">
           <BsPencilFill />
-          <form onSubmit={HandleSubmit}>
-            <input type="text" placeholder="Start a post" value={upload} onChange={(e)=> setUpload(e.target.value)}/>
-            <button type="submit">send</button>
-          </form>
+          <div className="form">
+            <input type="text" placeholder="Start a post" value={writeUp} onChange={(e)=> setWriteUp (e.target.value)}/>
+            <button onClick={CreatePost}>send</button>
+          </div>
         </div>
         <div className="Input-options">
         <Inputoptions Icon={<AiFillPicture />} color='blue' title='Photo'/>
@@ -110,23 +146,24 @@ const HandleSubmit= async (e)=>{
 </div>
 
 
- 
+
   
-  {
-  post.map((posts)=>{
-    const {name,occupation,id,Writeup}=posts
+ {
+  post.map((posts,index)=>{ 
+
     return(
       <>
+      
        <CentDown> 
-     <div className="user-info" key={id}>
+     <div className="user-info" key={index} >
           <FaUserCircle className='avatar'/> 
           <div>
-            <h5>{name}</h5>
-            <h6>{occupation}</h6>
+            <h5>joy</h5>
+            <h6>product manager|<br></br> operations manager</h6>
           </div>
       </div>
       <div className="post">
-        <h5>{Writeup}</h5>
+        <h5>{posts.Writeup}</h5>
       </div>
       {/* <hr></hr> */}
       <div className='comments-Input'>
@@ -138,10 +175,9 @@ const HandleSubmit= async (e)=>{
         </div>
         </CentDown> 
     </>   
-)
+ )
 })
-}
-
+} 
 
     </Centt>
     </>

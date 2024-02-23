@@ -25,7 +25,7 @@ export const CentWrap=styled.div`
  
  
 }
-form{
+.form{
     width:100%;
     display:flex;
     
@@ -33,19 +33,32 @@ form{
 }
 input{
     border:none;
-    flex: 1;
+    flex:1;
     margin-left:10px;
  outline:0;
     
 }
 button{
-    display:none;
+    /* display:none; */
+    color:white;
+    background:#659CF0;
+    border:none;
+    cursor: pointer;
+    padding:3px 5px;
+    border-radius:5px;
+
 }
 .Input-options{
     display:flex;
     justify-content:space-around;
+  
 }
-
+@media screen and (max-width:768px){
+    .Input-options{
+    
+    font-size:10px;
+}
+}
 `
 
 export const CentDown=styled.div`
@@ -86,6 +99,14 @@ margin-bottom:20px;
     .post h5{
         font-size:12px;
     }
+}
+@media screen and (max-width:768px){
+    .post h5{
+        font-size:12px;
+    }
+    .comments-Input{
+    font-size:12px;
+}
 }
 `
 export const Centt=styled.div`

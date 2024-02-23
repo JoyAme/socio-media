@@ -52,6 +52,16 @@ input{
 .usericon{
     display:none;
 }
+.btn{
+    /* display:none; */
+    color:white;
+    background:#659CF0;
+    border:none;
+    cursor: pointer;
+    padding:3px 5px;
+    border-radius:5px;
+
+}
 
 @media screen and (max-width:478px){
     .Header-row{
@@ -68,9 +78,22 @@ input{
     }
     .usericon{
     display:block;
+    font-size:30px;
 }
 .btn{
     display:block;
+    margin-top:10px;
+
 }
+}
+
+@media screen and (max-width:768px){
+    font-size:14px;
+    .icons-right{
+        display:none;
+    }
+    .icons{
+        font-size:12px;
+    }
 }
 `

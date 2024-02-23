@@ -20,9 +20,9 @@ const Rightbar = () => {
     
 
     {
-      Data.map((data)=>{
+      Data.map((data,index)=>{
         return(
-          <div className="info">
+          <div className="info" key={index}>
             <FaCircleUser className="user" />
           <div className="info1">
           <h4>{data.name}</h4>

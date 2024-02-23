@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../../../../asset/firebase';
+import { SignWrap } from "./Sign";
 
 
 const Signup = () => {
@@ -23,14 +24,36 @@ const Signup = () => {
 
 
   return (
+    <>
+    <SignWrap>
     <div>
-      <div>
-        <input type='email' placeholder='Enter you Email' value={email}onChange={e=> setEmail(e.target.value)} />
-        <input type='text' placeholder='Username'value={userName} onChange={e=> setUserName(e.target.value)} />
-        <input type='password' placeholder='Enter your password'value={password} onChange={e=> setPassword(e.target.value)}/>
+
+    <div className="app-container">
+      <h1>Linkedin Clone</h1>
+      <form  className="form-container">
+        <label>
+          Email:
+          <input type='email' placeholder='Enter you Email' value={email}onChange={e=> setEmail(e.target.value)} />
+        </label>
+        <br />
+        <label>
+          userName:
+          <input type='text' placeholder='Username'value={userName} onChange={e=> setUserName(e.target.value)} />
+        </label>
+        <br />
+        <label>
+          Email:
+          <input type='password' placeholder='Enter your password'value={password} onChange={e=> setPassword(e.target.value)}/>
+        </label>
+        <br />
         <button onClick={HandleSubmit}>Signup</button>
-      </div>
+      </form>
     </div>
+
+    </div>
+
+    </SignWrap>
+    </>
   )
 }
 

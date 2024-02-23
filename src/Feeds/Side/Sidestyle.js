@@ -79,6 +79,13 @@ background:white;
 
    
 }
+
+@media screen and (max-width:768px){
+    .side-bar{
+    font-size:10px;
+   
+    }
+}
 `
 
 export const SideBar=styled.div`
@@ -134,4 +141,11 @@ export const Sid=styled.div`
  /* border-radius:10px;
  text-align:center;
  height:fit-content; */
+
+
+
+ @media screen and (max-width:768px){
+    font-size:10px;
+    
+    }
 `

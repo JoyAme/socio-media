@@ -35,7 +35,7 @@ const Headerr = () => {
           <input type="text" placeholder="Search"/>
       </div>
       <div className="usericon">
-      <Icons Icon={<FaUserCircle />} title='Me' />
+      <Icons Icon={<FaUserCircle />} title='Me' className='usericon'/>
       </div>
       </div>
       

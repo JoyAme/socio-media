@@ -15,14 +15,14 @@ const Authentication = () => {
 {
     active === 'login'?(<Log/>) : (<Signup/>)
 }
-     
-
-    </div>
-    <div>
-        {
+{
             active === 'login' ? (<>dont have an Account <button onClick={HandleChange}>Signup</button></>):
             (<>have an Account <button onClick={HandleChange}>Login</button></>)
         }
+
+    </div>
+    <div>
+        
         
     </div>
     </>
