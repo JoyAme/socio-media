@@ -39,11 +39,11 @@ const CreatePost = async ()=>{
   
 useEffect(()=>{
  
-  // const getUpdate= async ()=>{
-  //   const data= await getDocs(postCollection);
-  //   setPost(data.docs.map((doc)=>({...doc.data(), id:doc.id})))
-  // }
-  // getUpdate()
+  const getUpdate= async ()=>{
+    const data= await getDocs(postCollection);
+    setPost(data.docs.map((doc)=>({...doc.data(), id:doc.id})))
+  }
+  getUpdate()
 })
  
   
